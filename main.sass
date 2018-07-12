@@ -1,0 +1,84 @@
+@import url('https://fonts.googleapis.com/css?family=Anton|Righteous')
+
+///
+
+$font1:		'Anton', sans-serif
+$font2:		'Righteous', cursive
+$f-size:	16px
+
+
+=btnCustom($pad,$border,$bgColor)
+	padding: $pad
+	border: $border
+	background-color: $bgColor
+
+=gridLayout($col,$gap)
+	display: grid
+	grid-template-columns: $col
+	grid-gap: $gap
+
+=flexLayout($dir,$justifyContent,$alignItems)
+	display: flex
+	flex-direction: $dir
+	justify-content: $justifyContent
+	align-items: $alignItems
+
+=centerAlign()
+	display: block
+	margin: auto
+
+=boxShadow()
+	-webkit-box-shadow: 0px 0px 23px -1px rgba(0,0,0,0.75)
+	-moz-box-shadow: 0px 0px 23px -1px rgba(0,0,0,0.75)
+	box-shadow: 0px 0px 23px -1px rgba(0,0,0,0.75)
+
+
+
+////
+body
+	background: #e2e2e2
+	background: -moz-linear-gradient(45deg, #e2e2e2 0%, #dbdbdb 50%, #d1d1d1 51%, #fefefe 100%)
+	background: -webkit-gradient(left bottom, right top, color-stop(0%, #e2e2e2), color-stop(50%, #dbdbdb), color-stop(51%, #d1d1d1), color-stop(100%, #fefefe))
+	background: -webkit-linear-gradient(45deg, #e2e2e2 0%, #dbdbdb 50%, #d1d1d1 51%, #fefefe 100%)
+	background: -o-linear-gradient(45deg, #e2e2e2 0%, #dbdbdb 50%, #d1d1d1 51%, #fefefe 100%)
+	background: -ms-linear-gradient(45deg, #e2e2e2 0%, #dbdbdb 50%, #d1d1d1 51%, #fefefe 100%)
+	background: linear-gradient(45deg, #e2e2e2 0%, #dbdbdb 50%, #d1d1d1 51%, #fefefe 100%)
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#e2e2e2', endColorstr='#fefefe', GradientType=1 )
+
+
+main
+	+gridLayout(repeat(3,1fr),0)
+	section
+		position: relative
+		+flexLayout(column,space-between,center)
+		height: 500px
+	img
+		max-width: 90%
+		+centerAlign()
+
+h1
+	font-family: $font2
+	font-size: $f-size + 25px
+	text-align: center
+	position: relative
+h3
+	font-family: $font1 
+
+.btn-group
+	+gridLayout(repeat(4,1fr),0)
+
+.play-btn
+	+btnCustom(10px 15px,none,#ffc107 )
+	+boxShadow()
+	border-radius: 10px
+	font-size: $f-size + 5px
+	font-weight: 600
+	margin: 10px 10px
+	font-family: $font1	
+	&:hover
+		cursor: pointer
+		transform: scale(1.1)
+		transition: transform .5s
+	&:active
+		transform: scale(1)
+		transition: transform .5s
